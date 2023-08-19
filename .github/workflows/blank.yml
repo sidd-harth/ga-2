@@ -1,7 +1,24 @@
 name: Generate ASCII Artwork
 
 on:  
-  push
+  workflow_dispatch: 
+  schedule:
+    - cron: "*/5 * * * *"
+  push:
+    # branches-ignore:  # add ONLY this and explain, it will run for push on any branch except these
+    #   - feature/*     # feature/add-music, feature/updateImages
+    #   - test/**       # test/ui/index, test/checkout/payment/
+    branches: 
+      - main
+      - '!feature/*'    # ignoring pushing to any feature branch using !
+  pull_request: 
+    types:
+      - opened
+      - reopened
+    paths-ignore:  
+      - README.md
+    branches: 
+        - feature/*
 
 env:
   CONTAINER_REGISTRY: docker.io
