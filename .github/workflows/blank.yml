@@ -18,7 +18,7 @@ on:
     paths-ignore:  
       - README.md
     branches: 
-        - feature/*
+        - main
       
 env:
   CONTAINER_REGISTRY: docker.io
