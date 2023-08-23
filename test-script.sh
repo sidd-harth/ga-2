@@ -11,6 +11,7 @@
 #     message=$INPUT_MESSAGE
 # fi
 
+
 #   if [ "$message" == "randomText" ]; then
 #     result=$(fortune | boxes -a c -d parchment | lolcat)
 #   else
