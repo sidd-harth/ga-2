@@ -16,7 +16,7 @@ jobs:
   
   commnet:   
     permissions: write-all
-    name: ccccccccc event
+    name: ccccccccc event22
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
