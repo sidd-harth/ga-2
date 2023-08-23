@@ -21,15 +21,15 @@
 
   # Comment on the PR
   # Comment on the PR
-   result=$(fortune | boxes -a c -d twisted)
+   result=$(fortune | boxes -a c -d parchment)
       echo asdddddddd
       URL=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.comments_url)
       echo $URL
-      newPayloadFormat="\`\`\`
-        ${result}
-        \`\`\`
-        "
-       payload=$(echo "${newPayloadFormat}" | jq -R --slurp '{body: .}')
+      # newPayloadFormat="\`\`\`
+      #   ${result}
+      #   \`\`\`
+      #   "
+       payload=$(echo "${result}" | jq -R --slurp '{body: .}')
       echo $payload
       echo "${payload}" | curl -s -S -H "Authorization: Bearer ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data @- "$URL"
 
