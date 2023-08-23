@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-apt update
-apt install -y jq lolcat fortune boxes
+apt-get update
+apt-get install -y jq lolcat fortune boxes
 # set -e
 
 # # setting the input message to a variable
@@ -21,10 +21,14 @@ apt install -y jq lolcat fortune boxes
 
   # Comment on the PR
       URL=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.comments_url)
+      echo $URL
     #   commentFromCowsay="\`\`\`
     #     ${result}
     #     \`\`\`
     #     "
       payload=$(fortune | boxes -a c -d parchment | lolcat)
+      echo $payload
       echo "${payload}" | curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data @- "$URL" > /dev/null
+
+      echo 123
     
