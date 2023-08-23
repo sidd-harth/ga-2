@@ -26,4 +26,6 @@ jobs:
       run: |
         chmod +x test-script.sh
         ./test-script.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
