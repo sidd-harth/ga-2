@@ -30,6 +30,6 @@
         "
        payload=$(echo "${newPayloadFormat}" | jq -R --slurp '{body: .}')
       echo $payload
-      echo "${payload}" | curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data @- "$URL" > /dev/null
+      echo "${payload}" | curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data @- "$URL"
 
           echo asdddddddd234324

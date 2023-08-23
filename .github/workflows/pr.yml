@@ -14,7 +14,8 @@ jobs:
       run: |
         echo "$GITHUB_CONTEXT"
   
-  commnet:    
+  commnet:   
+    permissions: write-all
     name: ccccccccc event
     runs-on: ubuntu-latest
     steps:
