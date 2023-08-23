@@ -21,7 +21,7 @@
 
   # Comment on the PR
   # Comment on the PR
-   result=$(fortune | boxes -a c -d twisted)
+   result=$(fortune | boxes -a c -d parchment)
       echo asdddddddd
       URL=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.comments_url)
       echo $URL
