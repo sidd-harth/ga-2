@@ -29,6 +29,7 @@
         ${result}
         \`\`\`
         "
+
        payload=$(echo "${newPayloadFormat}" | jq -R --slurp '{body: .}')
       echo $payload
       echo "${payload}" | curl -s -S -H "Authorization: Bearer ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data @- "$URL"
