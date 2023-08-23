@@ -20,14 +20,15 @@
 
 
   # Comment on the PR
+   result=$(fortune | boxes -a c -d parchment | lolcat)
       echo asdddddddd
       URL=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.comments_url)
       echo $URL
-    #   commentFromCowsay="\`\`\`
-    #     ${result}
-    #     \`\`\`
-    #     "
-      payload=$(fortune | boxes -a c -d parchment | lolcat)
+      newPayloadFormat="\`\`\`
+        ${result}
+        \`\`\`
+        "
+       payload=$(echo "${newPayloadFormat}" | jq -R --slurp '{body: .}')
       echo $payload
       echo "${payload}" | curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data @- "$URL" > /dev/null
 
