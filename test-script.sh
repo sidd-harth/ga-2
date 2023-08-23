@@ -4,6 +4,7 @@ apt update
 apt install -y jq lolcat fortune boxes
 # set -e
 
+
 # # setting the input message to a variable
 # if [ "$INPUT_MESSAGE" == "" ]; then
 #     message="randomText"
