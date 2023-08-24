@@ -26,11 +26,12 @@
       echo asdddddddd
       URL=$(cat $GITHUB_EVENT_PATH | jq -r .pull_request.comments_url)
       echo $URL
+      echo $result
       newPayloadFormat="\`\`\`
         ${result}
         \`\`\`
         "
-
+ echo $newPayloadFormat
        payload=$(echo "${newPayloadFormat}" | jq -R --slurp '{body: .}')
       echo $payload
       echo "${payload}" | curl -s -S -H "Authorization: Bearer ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data @- "$URL"
